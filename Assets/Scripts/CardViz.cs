@@ -7,6 +7,7 @@ public class CardViz : MonoBehaviour
 {
     public Card card;
     public CardVizProperties[] properties;
+    public GameObject statsHolder;
     public void Start()
     {
         LoadCard(card);
@@ -18,6 +19,7 @@ public class CardViz : MonoBehaviour
             return;
         }
         card = c;
+        c.cardType.OnSetType(this);
         for (int i = 0; i < c.properties.Length; i++)
         {
             CardProperties cp = c.properties[i];
